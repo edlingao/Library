@@ -23,7 +23,7 @@ function readBook(book, readedButton) {
 
 function deleteBook(book1) {
   const bookBox = document.querySelector(`#book-${book1.id}`);
-  myLibrary = myLibrary.filter((book) => book !== book1);
+  myLibrary = myLibrary.filter(book => book !== book1);
 
   bookBox.remove();
 }
@@ -62,7 +62,7 @@ function createBook(book) {
   library.appendChild(div);
 }
 function existsID(id) {
-  const exists = myLibrary.some((book) => book.id === id);
+  const exists = myLibrary.some(book => book.id === id);
   return exists ? existsID(id + 1) : id;
 }
 function createObjectBook(id, title, author, pages, readed) {
