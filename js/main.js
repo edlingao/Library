@@ -1,6 +1,5 @@
 
 let myLibrary = [];
-const counter = [1, 2, 3, 4, 5, 6];
 
 function Book(id, author, tittle, pages, readed) {
   this.id = id;
@@ -24,7 +23,7 @@ function readBook(book, readedButton) {
 function deleteBook(book1) {
   const bookBox = document.querySelector(`#book-${book1.id}`);
   myLibrary = myLibrary.filter(book => book !== book1);
-
+  localStorage.removeItem(book1.id);
   bookBox.remove();
 }
 
@@ -65,11 +64,15 @@ function existsID(id) {
   const exists = myLibrary.some(book => book.id === id);
   return exists ? existsID(id + 1) : id;
 }
+function addLocalStorageBook(book) {
+  localStorage.setItem(book.id, JSON.stringify(book));
+}
 function createObjectBook(id, title, author, pages, readed) {
   const book1 = new Book(id, author, title, pages, readed);
   book1.id = existsID(book1.id);
   myLibrary.push(book1);
   createBook(book1);
+  addLocalStorageBook(book1);
 }
 
 function showBoxes(arr) {
@@ -89,12 +92,11 @@ function showHide(show = false) {
 }
 
 function main() {
-  counter.forEach((count) => {
-    const book = new Book(myLibrary.length, count, count, count, false);
-    myLibrary.push(book);
-  });
   const book1 = new Book(myLibrary.length, 'edlingao', 'Etterium', 65, true);
   myLibrary.push(book1);
+  Object.keys(localStorage).forEach((key) => {
+    myLibrary.push(JSON.parse(localStorage.getItem(key)));
+  });
   showBoxes(myLibrary);
 
 
