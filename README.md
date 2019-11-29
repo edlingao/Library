@@ -1,5 +1,6 @@
 # Library project
 ==== 
+This is a library system that stores books and displays it on a nice UI making use of Objects, arrays and LocalStorage.
 [From the odin project](https://www.theodinproject.com/courses/javascript/lessons/library)
 #### This project fills an array of Book Javascript objects
 #### This can be done using vainilla javascript with AirBnB style
