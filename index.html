@@ -4,10 +4,35 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet"  type='text/css' href="css/main.css">
     <title>My library</title>
 </head>
 <body>
+    <div class="container">
+        <div id="append"></div>
+        <button id='add'>+</button>
+
+        <div class="form hide" id = 'form'>
+            <button class="close" id="close">X</button>
+            <div class="form-content">
+                <h1>Add a Books</h1>
+                <label for="title">Title</label>
+                <input type="text" name="title" id="title">
+                <label for="author">Author</label>
+                <input type="text" name="author" id="author">
+                <label for="number">Pages</label>
+                <input type="number" name="pages" id="pages">
+
+                <div class="readed">
+                    <label for="readed">Already readed?
+                        <input type="checkbox" name="readed" id="readed">
+                    </label>
+                </div>
+                
+                <button id='register-book'>Add a book</button>
+            </div>
+        </div>
+    </div>
     
     <script src="js/main.js"></script>
 </body>
